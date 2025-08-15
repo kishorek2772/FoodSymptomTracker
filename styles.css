@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.app {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.step {
+    padding: 40px;
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.step h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* Symptoms Grid */
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.symptom-btn {
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.symptom-btn:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.symptom-btn.selected {
+    border-color: #667eea;
+    background: #667eea;
+    color: white;
+}
+
+/* Selected Symptoms */
+.selected-symptoms {
+    margin-bottom: 30px;
+}
+
+.selected-symptom {
+    display: inline-flex;
+    align-items: center;
+    background: #e8f2ff;
+    color: #667eea;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.remove-symptom {
+    background: none;
+    border: none;
+    color: #667eea;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Food Input */
+.food-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#food-input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#food-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Food List */
+.food-list {
+    margin-bottom: 30px;
+}
+
+.food-item {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.food-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.remove-food {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.remove-food:hover {
+    background: #ff5252;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #333;
+    border: 2px solid #e0e0e0;
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+
+.step-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Results */
+.results {
+    margin-bottom: 30px;
+}
+
+.prediction {
+    background: #f8f9ff;
+    border: 2px solid #e8f2ff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.food-name-result {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.confidence {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.confidence-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.5s ease;
+}
+
+.reasons {
+    color: #666;
+}
+
+.reasons h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.reasons ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.reasons li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.reasons li:before {
+    content: "•";
+    color: #667eea;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.no-results h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .step {
+        padding: 20px;
+    }
+    
+    .symptoms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .food-input {
+        flex-direction: column;
+    }
+    
+    .step-buttons {
+        flex-direction: column;
+    }
+    
+    .prediction-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

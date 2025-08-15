@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Symptom Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍎 Predicting food poisoing or upset stomach </h1>
+            <p>Find potential food triggers for your symptoms</p>
+        </header>
+
+        <div class="app">
+            <!-- Step 1: Symptoms -->
+            <div id="step1" class="step active">
+                <h2>Step 1: Select Your Symptoms</h2>
+                <div class="symptoms-grid">
+                    <button class="symptom-btn" data-symptom="bloating">Bloating</button>
+                    <button class="symptom-btn" data-symptom="nausea">Nausea</button>
+                    <button class="symptom-btn" data-symptom="stomach_pain">Stomach Pain</button>
+                    <button class="symptom-btn" data-symptom="diarrhea">Diarrhea</button>
+                    <button class="symptom-btn" data-symptom="headache">Headache</button>
+                    <button class="symptom-btn" data-symptom="fatigue">Fatigue</button>
+                    <button class="symptom-btn" data-symptom="skin_rash">Skin Rash</button>
+                    <button class="symptom-btn" data-symptom="heartburn">Heartburn</button>
+                    <button class="symptom-btn" data-symptom="constipation">Constipation</button>
+                    <button class="symptom-btn" data-symptom="itching">Itching</button>
+                </div>
+                
+                <div id="selected-symptoms" class="selected-symptoms"></div>
+                
+                <button id="next-to-foods" class="btn-primary" disabled>Next: Add Foods</button>
+            </div>
+
+            <!-- Step 2: Foods -->
+            <div id="step2" class="step">
+                <h2>Step 2: What Did You Eat Recently?</h2>
+                <div class="food-input">
+                    <input type="text" id="food-input" placeholder="Enter food name (e.g., pizza, milk, bread)">
+                    <button id="add-food" class="btn-secondary">Add Food</button>
+                </div>
+                
+                <div id="food-list" class="food-list"></div>
+                
+                <div class="step-buttons">
+                    <button id="back-to-symptoms" class="btn-secondary">Back</button>
+                    <button id="analyze" class="btn-primary" disabled>Analyze</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Results -->
+            <div id="step3" class="step">
+                <h2>Step 3: Analysis Results</h2>
+                <div id="results" class="results"></div>
+                
+                <div class="step-buttons">
+                    <button id="back-to-foods" class="btn-secondary">Back</button>
+                    <button id="start-over" class="btn-primary">Start Over</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
